@@ -1,0 +1,24 @@
+# Use the official Node.js 18 image as the base image
+FROM node:18
+
+# Set the working directory to /workspace
+WORKDIR /workspace
+
+# Install zsh
+RUN apt-get update && apt-get install -y zsh
+
+# Copy the package.json and yarn.lock files to the container
+COPY package*.json ./
+
+# Install the dependencies
+RUN yarn install --production=false
+
+# Copy the rest of the application code to the container
+COPY . .
+
+# Expose the default port for the app
+EXPOSE 3000
+
+# Start the app
+CMD ["yarn", "start"]
+
