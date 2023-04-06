@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <div>
-        <p>Home</p>
+        <p className="text-red">Home</p>
       </div>
     </main>
   );
