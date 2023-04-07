@@ -31,7 +31,8 @@
 				"bradlc.vscode-tailwindcss",
 				"GitHub.copilot",
 				"ms-vscode.makefile-tools",
-				"bungcip.better-toml"
+				"bungcip.better-toml",
+				"ms-azuretools.vscode-docker"
 			]
         }
     },
