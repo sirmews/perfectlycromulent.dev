@@ -14,11 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body>
+      <body className='bg-white text-gray-900 dark:bg-slate-900 dark:text-white'>
         <>
           <PageControls />
         </>
-        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>{children}</div>
+        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 '>
+          {children}
+        </div>
       </body>
     </html>
   )
