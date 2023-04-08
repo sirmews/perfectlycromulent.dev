@@ -1,0 +1,19 @@
+{
+  "links": [
+    {
+      "url": "https://www.linkedin.com/in/nav-rao/",
+      "name": "LinkedIn"
+    },
+    {
+      "url": "https://github.com/sirmews",
+      "name": "GitHub"
+    }
+  ],
+  "projects": [
+    {
+      "url": "https://www.idojo.com/",
+      "name": "iDojo",
+      "description": "A platform for building habits and resiliency."
+    }
+  ]
+}
