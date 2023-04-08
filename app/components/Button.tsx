@@ -29,9 +29,9 @@ export const Button: FunctionComponent<ButtonProps> = ({
     'focus:ring-offset-2',
     'font-semibold',
     {
-      'bg-slate-900 hover:bg-slate-700 focus:ring-slate-900 text-white':
+      'bg-slate-900 dark:bg-white hover:bg-slate-700 dark:hover:bg-slate-300 focus:ring-slate-900 text-white dark:text-slate-900':
         variant === 'primary',
-      'bg-white hover:bg-gray-50 focus:ring-gray-300 text-gray-900 ring-1 ring-inset ring-gray-300':
+      'bg-white dark:bg-slate-900 hover:bg-gray-50 dark:hover:bg-slate-700 focus:ring-gray-300 text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300':
         variant === 'secondary',
       'text-xs': size === 'xs',
       'text-sm': size === 'sm' || size === 'md',

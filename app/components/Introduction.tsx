@@ -2,13 +2,13 @@ import { Button } from './'
 import data from '../data.json'
 
 export const Introduction = () => (
-  <div className='bg-white py-24 sm:py-32'>
-    <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+  <div className='py-24 sm:py-32'>
+    <div className='mx-auto max-w-7xl px-2 lg:px-6'>
       <div className='mx-auto max-w-2xl lg:mx-0'>
-        <h2 className='text-5xl font-bold tracking-tight text-gray-900 sm:text-7xl'>
+        <h2 className='text-5xl font-bold tracking-tight sm:text-7xl'>
           Home of Nav
         </h2>
-        <p className='mt-6 text-3xl leading-10 text-gray-600'>
+        <p className='mt-6 text-3xl leading-10 text-gray-600 dark:text-gray-300'>
           A perfectly cromulent product engineer, aspiring indiehacker, chronic
           oversharer of all things mental health
         </p>
