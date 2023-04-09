@@ -1,15 +1,23 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { Introduction } from "./components";
+import { Inter } from 'next/font/google'
+import { Introduction } from './components'
+import data from './data.json'
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
+
+const HomeData = {
+  title: 'Home of Nav',
+  description:
+    'A perfectly cromulent product engineer, aspiring indiehacker, chronic oversharer of all things mental health',
+  links: data.links,
+}
 
 export default function Home() {
+  const { title, description, links } = HomeData
   return (
     <main>
       <div>
-        <Introduction />
+        <Introduction title={title} description={description} links={links} />
       </div>
     </main>
-  );
+  )
 }
