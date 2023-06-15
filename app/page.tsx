@@ -1,8 +1,5 @@
-import { Inter } from 'next/font/google'
 import { Introduction } from './components'
 import data from './data.json'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const HomeData = {
   title: 'Home of Nav',

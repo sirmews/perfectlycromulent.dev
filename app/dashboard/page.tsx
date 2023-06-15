@@ -1,8 +1,5 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import { Introduction } from '@components/Introduction'
-
-const inter = Inter({ subsets: ['latin'] })
 
 const HomeData = {
   title: 'Upcoming Dashboard...',
