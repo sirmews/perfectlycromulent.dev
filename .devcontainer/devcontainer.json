@@ -32,7 +32,8 @@
 				"GitHub.copilot",
 				"ms-vscode.makefile-tools",
 				"bungcip.better-toml",
-				"ms-azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker",
+				"sastan.twind-intellisense"
 			]
         }
     },
