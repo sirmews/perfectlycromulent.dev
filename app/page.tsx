@@ -1,22 +1,15 @@
 import { Inter } from 'next/font/google'
 import { Introduction } from './components'
-import data from './data.json'
-
-const inter = Inter({ subsets: ['latin'] })
-
-const HomeData = {
-  title: 'Home of Nav',
-  description:
-    'A perfectly cromulent product engineer, aspiring indiehacker, chronic oversharer of all things mental health',
-  links: data.links,
-}
+import { Cursor, Hero } from './components/index'
 
 export default function Home() {
-  const { title, description, links } = HomeData
   return (
     <main>
       <div>
-        <Introduction title={title} description={description} links={links} />
+        <Hero>
+          Nav is a perfectly cromulent product engineer, an aspiring indiehacker
+          and chronic oversharer of all things mental health. <Cursor />
+        </Hero>
       </div>
     </main>
   )
