@@ -1,9 +1,13 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { FeatureContext } from '@/app/contexts'
 import { Switch } from '@headlessui/react'
 import { applyTheme, getInitialTheme } from '../../utils/theme'
 
 export const ThemeToggle = () => {
+  const { features } = useContext(FeatureContext);
+  const colorScheme = features['color-scheme'];
+
   const [enabled, setEnabled] = useState<boolean>(false)
 
   const toggleTheme = () => {
@@ -14,10 +18,23 @@ export const ThemeToggle = () => {
   }
 
   useEffect(() => {
-    const isEnabled = getInitialTheme() == 'dark' ? true : false
-    setEnabled(isEnabled)
-    applyTheme(getInitialTheme())
-  }, [enabled])
+    /**
+     * If the color-scheme feature is set to manual, then we need to check localStorage
+     * to see if the user has already set a preference. If not, we default to the OS preference.
+     */
+    if (colorScheme === 'manual') {
+      const isEnabled = getInitialTheme() == 'dark' ? true : false
+      setEnabled(isEnabled)
+      applyTheme(getInitialTheme())
+    } else {
+      // If the color-scheme feature is not set to manual, then we just apply the theme
+      applyTheme(colorScheme)
+    }
+  }, [colorScheme])
+
+  if (colorScheme !== 'manual') {
+    return null; // Do not render the toggle if color-scheme is not manual
+  }
 
   return (
     <Switch
