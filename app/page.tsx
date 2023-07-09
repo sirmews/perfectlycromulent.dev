@@ -1,22 +1,42 @@
 import { Inter } from 'next/font/google'
 import { Introduction } from './components'
-import data from './data.json'
-
-const inter = Inter({ subsets: ['latin'] })
-
-const HomeData = {
-  title: 'Home of Nav',
-  description:
-    'A perfectly cromulent product engineer, aspiring indiehacker, chronic oversharer of all things mental health',
-  links: data.links,
-}
+import { Cursor, Hero } from './components/index'
 
 export default function Home() {
-  const { title, description, links } = HomeData
   return (
-    <main>
-      <div>
-        <Introduction title={title} description={description} links={links} />
+    <main className='flex h-screen'>
+      <div className='space-y-12 pt-24'>
+        <Hero>
+          Nav is a perfectly cromulent product engineer, an aspiring indiehacker
+          and chronic oversharer on all things mental health.
+        </Hero>
+        <Hero>
+          Find him on{' '}
+          <a
+            href='https://www.linkedin.com/in/nav-rao/'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
+            LinkedIn
+          </a>
+          ,{' '}
+          <a
+            href='https://theperfectlycromulent.substack.com/'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
+            Substack
+          </a>{' '}
+          and{' '}
+          <a
+            href='https://github.com/sirmews'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
+            Github
+          </a>
+          .<Cursor />
+        </Hero>
       </div>
     </main>
   )

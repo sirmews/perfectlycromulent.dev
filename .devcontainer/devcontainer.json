@@ -1,44 +1,47 @@
 {
-    "name": "Perfectly Cromulent",
-    "build": {
-        "dockerfile": "Dockerfile.dev",
-        "context": "."
-    },
-    "appPort": [3000],
-    "postCreateCommand": "yarn install",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "tailwindCSS": {
-                    "emmetCompletions": true,
-                    "validate": false,
-                    "includeLanguages": {
-                        "markdown": "html"
-                    }
-                },
-                "terminal": {
-                    "integrated": {
-                        "shell": {
-                            "linux": "/bin/zsh"
-                        }
-                    }
-                }
-            },
-            "extensions": [
-				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode",
-				"vscode.typescript-language-features",
-				"bradlc.vscode-tailwindcss",
-				"GitHub.copilot",
-				"ms-vscode.makefile-tools",
-				"bungcip.better-toml",
-				"ms-azuretools.vscode-docker"
-			]
+  "name": "Perfectly Cromulent",
+  "build": {
+    "dockerfile": "Dockerfile.dev",
+    "context": "."
+  },
+  "appPort": [3000],
+  "postCreateCommand": "yarn install",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "typescript.tsdk": "node_modules/typescript/lib",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "tailwindCSS": {
+          "emmetCompletions": true,
+          "validate": false,
+          "includeLanguages": {
+            "markdown": "html"
+          }
+        },
+        "terminal": {
+          "integrated": {
+            "shell": {
+              "linux": "/bin/zsh"
+            }
+          }
         }
-    },
-    "forwardPorts": [3000],
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
-    "workspaceFolder": "/workspace",
-    "runArgs": ["--network", "host"]
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "vscode.typescript-language-features",
+        "bradlc.vscode-tailwindcss",
+        "GitHub.copilot",
+        "ms-vscode.makefile-tools",
+        "bungcip.better-toml",
+        "ms-azuretools.vscode-docker",
+        "sastan.twind-intellisense"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=delegated",
+  "workspaceFolder": "/workspace",
+  "runArgs": ["--network", "host"]
 }
-

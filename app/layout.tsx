@@ -1,5 +1,6 @@
 import './globals.css'
 import { PageControls } from './components/client'
+import Providers from './providers'
 
 export const metadata = {
   title: 'Nav is Perfectly Cromulent',
@@ -14,13 +15,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className='bg-white text-gray-900 dark:bg-slate-900 dark:text-white'>
-        <>
-          <PageControls />
-        </>
-        <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 '>
-          {children}
-        </div>
+      <body className='bg-white text-gray-900 dark:bg-neutral-900 dark:text-white'>
+        <Providers>
+          <>
+            <PageControls />
+            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 '>
+              {children}
+            </div>
+          </>
+        </Providers>
       </body>
     </html>
   )
