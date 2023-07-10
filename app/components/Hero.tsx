@@ -27,7 +27,7 @@ export const Hero: React.FC<HeroProps> = ({ children }) => {
     <div className=''>
       <div className='mx-auto max-w-7xl px-2 lg:px-6'>
         <div className='mx-auto lg:mx-0'>
-          <p className='text-5xl font-semibold tracking-normal sm:text-7xl'>
+          <p className='text-4xl font-semibold tracking-normal sm:text-7xl'>
             {childrenWithExtraProp}
           </p>
         </div>

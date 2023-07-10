@@ -4,8 +4,8 @@ import { Cursor, Hero } from './components/index'
 
 export default function Home() {
   return (
-    <main className='flex h-screen'>
-      <div className='space-y-12 pt-24'>
+    <main className='flex min-h-screen'>
+      <div className='space-y-12 pt-24 pb-24'>
         <Hero>
           Nav is a perfectly cromulent product engineer, an aspiring indiehacker
           and chronic oversharer on all things mental health.
