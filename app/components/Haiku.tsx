@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 interface Haiku {
   id: string
@@ -30,14 +31,17 @@ export const Haiku: React.FC<HaikuProps> = ({ haiku }) => {
     <div className=''>
       <div className='mx-auto max-w-7xl px-2 lg:px-6'>
         <div className='mx-auto lg:mx-0'>
-          <p className='text-3xl font-semibold tracking-normal sm:text-5xl'>
+          <Link
+            href={`/haikus/${id}`}
+            className='text-3xl font-semibold tracking-normal sm:text-5xl'
+          >
             {splitHaiku(text).map((line, index) => (
               <>
                 {line}
                 <br />
               </>
             ))}
-          </p>
+          </Link>
           <p className='text-gray-500 text-sm py-2'>{date}</p>
         </div>
       </div>

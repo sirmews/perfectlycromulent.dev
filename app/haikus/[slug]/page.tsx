@@ -45,7 +45,7 @@ export default function Page({ params }: PageProps) {
   return (
     <div className='flex h-screen'>
       <div className='m-auto'>
-        <Hero>
+        <Hero className='-mx-2 sm:-mx-6'>
           {textLines.map((line, index) => (
             <>
               {line}
