@@ -3,8 +3,8 @@ import haikus from '@data/haikus.json'
 
 export default function Page() {
   return (
-    <main className='flex h-screen'>
-      <div className='space-y-12 pt-24'>
+    <main className='flex min-h-screen'>
+      <div className='space-y-12 pt-24 pb-24'>
         <Hero>
           Perfectly Cromulent Haikus.
           <br />
