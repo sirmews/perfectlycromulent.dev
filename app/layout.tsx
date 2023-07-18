@@ -1,6 +1,7 @@
-import './globals.css'
-import { PageControls } from './components/client'
-import Providers from './providers'
+import { Analytics } from '@vercel/analytics/react';
+import { PageControls } from './components/client';
+import './globals.css';
+import Providers from './providers';
 
 export const metadata = {
   title: 'Nav is Perfectly Cromulent',
@@ -24,6 +25,7 @@ export default function RootLayout({
             </div>
           </>
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
