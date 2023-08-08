@@ -1,7 +1,8 @@
-import React from 'react'
-import haikus from '@data/haikus.json'
 import { Haiku, Hero } from '@components/index'
+import haikus from '@data/haikus.json'
+import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
+
 
 interface Haiku {
   id: string
@@ -19,6 +20,32 @@ interface PageProps {
   }
 }
 
+export async function generateMetadata(
+  { params }: PageProps,
+  parent?: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { slug } = params
+
+  // fetch data
+  const haiku = findTheHaiku(slug)
+
+
+  return {
+    description: `Something about ${slugToTitle(slug)}`,
+  }
+}
+
+/**
+ * Convert slug to title for SEO reasons
+ * @param slug - the slug of the haiku specified in the haiku json file
+ * @returns 
+ */
+const slugToTitle = (slug: string) => {
+  const words = slug.split('-')
+  return words.map((word) => word[0] + word.slice(1)).join(' ')
+}
+
 /**
  * Split string into individual lines of text
  * @param haiku
@@ -30,10 +57,18 @@ const splitHaiku = (haiku: string) => {
   return lines
 }
 
+/**
+ * Find the haiku by slug
+ * @param slug - the slug of the haiku specified in the haiku json file
+ */
+const findTheHaiku = (slug: string) => {
+  return haikus.find((haiku) => haiku.id === slug)
+}
+
 export default function Page({ params }: PageProps) {
   // get haiku from router query
   const { slug } = params
-  const haiku = haikus.find((haiku) => haiku.id === slug)
+  const haiku = findTheHaiku(slug)
 
   // return 404 if no haiku found
   if (!haiku) {
