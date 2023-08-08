@@ -9,6 +9,7 @@ interface Haiku {
 
 export interface HaikuProps {
   haiku: Haiku
+  className?: string
 }
 
 /**
@@ -22,13 +23,13 @@ const splitHaiku = (haiku: string) => {
   return lines
 }
 
-export const Haiku: React.FC<HaikuProps> = ({ haiku }) => {
+export const Haiku: React.FC<HaikuProps> = ({ haiku, className }) => {
   // get haiku from props as text
 
   const { haiku: text, id, date } = haiku
 
   return (
-    <div className=''>
+    <div className={className}>
       <div className='mx-auto max-w-7xl px-2 lg:px-6'>
         <div className='mx-auto lg:mx-0'>
           <Link
