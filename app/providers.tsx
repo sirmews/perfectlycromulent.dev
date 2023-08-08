@@ -1,5 +1,5 @@
 'use client';
-import { FeatureProvider } from '@/app/contexts';
+import { AnalyticsPostHogProvider, FeatureProvider } from '@/app/contexts';
 import React from 'react';
 
 type ProvidersProps = {
@@ -8,9 +8,11 @@ type ProvidersProps = {
 
 const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
-    <FeatureProvider>
-      {children}
-    </FeatureProvider>
+    <AnalyticsPostHogProvider>
+      <FeatureProvider>
+        {children}
+      </FeatureProvider>
+    </AnalyticsPostHogProvider>
   );
 }
 
