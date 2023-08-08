@@ -1,6 +1,6 @@
 import { Haiku, Hero } from '@components/index'
 import haikus from '@data/haikus.json'
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 
@@ -21,15 +21,10 @@ interface PageProps {
 }
 
 export async function generateMetadata(
-  { params }: PageProps,
-  parent?: ResolvingMetadata
+  { params }: PageProps
 ): Promise<Metadata> {
   // read route params
   const { slug } = params
-
-  // fetch data
-  const haiku = findTheHaiku(slug)
-
 
   return {
     description: `Something about ${slugToTitle(slug)}`,
