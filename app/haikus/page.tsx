@@ -1,5 +1,10 @@
-import { Cursor, Hero, Haiku } from '@components/index'
+import { Haiku, Hero } from '@components/index'
 import haikus from '@data/haikus.json'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  description: `Perfectly Cromulent Haikus - it's just 5-7-5 syllables`,
+}
 
 export default function Page() {
   return (
@@ -12,7 +17,7 @@ export default function Page() {
         </Hero>
         <div className='space-y-20 pt-20'>
           {haikus.reverse().map((haiku) => (
-            <Haiku key={haiku.id} haiku={haiku} />
+            <Haiku key={haiku.id} haiku={haiku} className='block' />
           ))}
         </div>
       </div>
