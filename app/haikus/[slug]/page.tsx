@@ -75,9 +75,8 @@ export default function Page({ params }: PageProps) {
   const textLines = splitHaiku(haiku.haiku)
 
   return (
-    <div className='flex h-screen'>
+    <div className='flex sm:h-screen py-6 sm:py-0'>
       <div className='m-auto'>
-
         <div className='mx-auto'>
           <div className='mx-auto lg:mx-0'>
             <p className='text-4xl font-semibold tracking-normal sm:text-7xl flex flex-col space-y-1'>
@@ -89,7 +88,6 @@ export default function Page({ params }: PageProps) {
             </p>
           </div>
         </div>
-
 
         {haiku?.date && (
           <p className='text-gray-400 text-sm sm:text-base py-3'>
