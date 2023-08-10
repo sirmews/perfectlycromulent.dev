@@ -1,4 +1,4 @@
-import { Haiku, Hero, Paragraph } from '@components/index'
+import { Haiku, Paragraph } from '@components/index'
 import haikus from '@data/haikus.json'
 import { formatDate, randomLocations } from '@utils/date'
 import type { Metadata } from 'next'
@@ -77,14 +77,20 @@ export default function Page({ params }: PageProps) {
   return (
     <div className='flex h-screen'>
       <div className='m-auto'>
-        <Hero className='-mx-2 sm:-mx-6'>
-          {textLines.map((line, index) => (
-            <>
-              {line}
-              <br />
-            </>
-          ))}
-        </Hero>
+
+        <div className='mx-auto'>
+          <div className='mx-auto lg:mx-0'>
+            <p className='text-4xl font-semibold tracking-normal sm:text-7xl flex flex-col space-y-1'>
+              {textLines.map((line, index) => (
+                <span key={index}>
+                  {line}
+                </span>
+              ))}
+            </p>
+          </div>
+        </div>
+
+
         {haiku?.date && (
           <p className='text-gray-400 text-sm sm:text-base py-3'>
             Written on {formatDate(haiku.date)}, {randomLocations()}.
