@@ -1,14 +1,15 @@
-import React from 'react'
-import Link from 'next/link'
+import { formatDate } from '@utils/date';
+import Link from 'next/link';
+import React from 'react';
 
-interface Haiku {
+export interface IHaiku {
   id: string
   haiku: string
   date: string
 }
 
 export interface HaikuProps {
-  haiku: Haiku
+  haiku: IHaiku
   className?: string
 }
 
@@ -37,13 +38,15 @@ export const Haiku: React.FC<HaikuProps> = ({ haiku, className }) => {
             className='text-3xl font-semibold tracking-normal sm:text-5xl'
           >
             {splitHaiku(text).map((line, index) => (
-              <>
+              <React.Fragment key={index}>
                 {line}
                 <br />
-              </>
+              </React.Fragment>
             ))}
           </Link>
-          <p className='text-gray-500 text-sm py-2'>{date}</p>
+          <time className='block text-gray-400 text-sm sm:text-base py-3' suppressHydrationWarning>
+            {formatDate(date)}
+          </time>
         </div>
       </div>
     </div>
