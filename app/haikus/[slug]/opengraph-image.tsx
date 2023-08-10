@@ -53,7 +53,6 @@ export default async function Image({ params }: ImageProps) {
             <p tw="text-4xl font-bold tracking-normal sm:text-7xl flex-col">
               {haikuLines}
             </p>
-            <p tw='text-gray-500 text-sm'>{haiku.date}</p>
           </div>
         </div>
       </div>
