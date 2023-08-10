@@ -97,12 +97,14 @@
   {
     "id": "loud",
     "haiku": "Sits perched on the edge / with lips ajar, waiting for / when someone will hear.",
-    "date": "2016-06-30"
+    "date": "2016-06-30",
+    "description": "How does one interject?\nSometimes you want to say something but you don't want to come off as rude.\nSometimes you say something but maybe it's not loud enough.\n\nOr maybe it is?\n"
   },
   {
     "id": "sandwich",
     "haiku": "There's nothing quite as / dead as the dried husk of a / gas station sandwich.",
-    "date": "2016-07-01"
+    "date": "2016-07-01",
+    "description": "It's 2am and I'm hungry.\nLooks like the only thing that's open is a local gas station.\nThe sandwiches are warm, bathed in a harsh fluorescent white.\nI could have gone for the meatpies but I was on a health kick and a sandwich is just a tad healthier. Less carbs.\n\nAll cardboard."
   },
   {
     "id": "airplane",
