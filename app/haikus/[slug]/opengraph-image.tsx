@@ -44,10 +44,6 @@ export default async function Image({ params }: ImageProps) {
 
   const haikuLines = splitHaiku(haikuText)
 
-  // create a string of the haiku
-  const haikuFinalisedText = haikuLines.join('\n')
-  console.log(haikuFinalisedText)
-
   return new ImageResponse(
     (
 
@@ -63,9 +59,6 @@ export default async function Image({ params }: ImageProps) {
       </div>
 
     ),
-    {
-      width: 1200,
-      height: 630,
-    }
+    size
   )
 }

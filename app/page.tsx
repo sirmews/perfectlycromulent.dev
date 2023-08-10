@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Cursor, ExternalLink, Hero, SubHero } from './components/index'
 
-const heading = `Nav is a perfectly cromulent product engineer, an aspiring indiehacker
+const heading: string = `Nav is a perfectly cromulent product engineer, an aspiring indiehacker
 and chronic oversharer on all things mental health.`
 
 export const metadata: Metadata = {
@@ -55,3 +55,5 @@ export default function Home() {
     </main>
   )
 }
+
+export { heading }
