@@ -107,12 +107,14 @@
   {
     "id": "airplane",
     "haiku": "Her arms extended / Is she playing an airplane? / Oh, she wants a hug!",
-    "date": "2016-07-02"
+    "date": "2016-07-02",
+    "description": "It's embarrasing to think, with arms wide open, I never considered she wanted a hug?\nWhat does that say about me?\n\nAm I so terrified of human contact and intimacy that the thought of a hug is the furthest from my mind?.\n\nNo, she always could make me fly."
   },
   {
     "id": "top-right",
     "haiku": "Just keep your head up / look forward and don't falter / your neck will thank you.",
-    "date": "2016-07-03"
+    "date": "2016-07-03",
+    "description": "Turns out I can write a positive message.\n\nAll it took was a neck injury."
   },
   {
     "id": "i-quit",
@@ -123,12 +125,14 @@
   {
     "id": "i-wrote-this-i-swear",
     "haiku": "I need an A.I. / Wisdom woven in circuits / I did not write that.",
-    "date": "2023-07-18"
+    "date": "2023-07-18",
+    "description": "Yea, ChatGPT ain't too bad at writing Haikus. \nThey're almost too good though. \nNo one would believe I wrote this.\nIn a world of too good, I want to stand out as an outlier.\n\nI'm too bad."
   },
   {
     "id": "van-life-with-cheese",
     "haiku": "Sitting in a van / With cheese my sustenance / I write my tall tales.",
-    "date": "2023-08-08"
+    "date": "2023-08-08",
+    "description": "A French girl made me think of cheese recently. \nAnother not French girl made me think of road trips. \n\nI've discovered girls make me think a lot and thinking a lot makes me want to write a lot.\n\nWouldn't it be fun to write a lot in a van? \nWith cheese?\n\nI think so."
   },
   {
     "id": "visit-my-substack",
