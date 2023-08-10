@@ -1,5 +1,6 @@
-import { Haiku, Hero } from '@components/index'
+import { Haiku, Hero, Paragraph } from '@components/index'
 import haikus from '@data/haikus.json'
+import { formatDate, randomLocations } from '@utils/date'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
@@ -8,6 +9,7 @@ interface Haiku {
   id: string
   haiku: string
   date: string
+  description?: string
 }
 
 export interface HaikuProps {
@@ -84,9 +86,14 @@ export default function Page({ params }: PageProps) {
           ))}
         </Hero>
         {haiku?.date && (
-          <p className='text-gray-500 text-sm py-2'>{haiku.date}</p>
+          <p className='text-gray-400 text-sm sm:text-base py-3'>
+            Written on {formatDate(haiku.date)}, {randomLocations()}.
+          </p>
         )}
+        {haiku?.description && <div className='pt-8 pb-4'>
+          <Paragraph className='text-gray-300'>{haiku.description}</Paragraph>
+        </div>}
       </div>
-    </div>
+    </div >
   )
 }
