@@ -28,6 +28,7 @@ export default async function Page() {
 
 // use backend to retrieve the haikus
 const getData = async () => {
-  const reversedHaikus = haikus.reverse();
+  // create a new array of haikus in reverse order
+  const reversedHaikus = [...haikus.reverse()];
   return reversedHaikus;
 }
