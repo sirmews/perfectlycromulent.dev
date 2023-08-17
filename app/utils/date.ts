@@ -3,7 +3,9 @@ const randomLocationsStrings = [
 	'in bed',
 	'on a staircase to nowhere',
 	'at your moms',
-	'outside your window'
+	'outside your window',
+	'on a wet/dry/cold/hot Melbourne day',
+	'under a bridge',
 ]
 
 export const formatDate = (dateString: string) => {

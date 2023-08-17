@@ -1,4 +1,4 @@
-import { Haiku, Paragraph } from '@components/index'
+import { ExternalLink, Haiku, Paragraph } from '@components/index'
 import haikus from '@data/haikus.json'
 import { formatDate, randomLocations } from '@utils/date'
 import type { Metadata } from 'next'
@@ -94,9 +94,12 @@ export default function Page({ params }: PageProps) {
             Written on {formatDate(haiku.date)}, {randomLocations()}.
           </p>
         )}
-        {haiku?.description && <div className='pt-8 pb-4'>
+        {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
           <Paragraph className='text-gray-300'>{haiku.description}</Paragraph>
         </div>}
+        <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
+          <ExternalLink className='border-b-2' href='/haikus'>← More Haikus</ExternalLink>
+        </div>
       </div>
     </div >
   )
