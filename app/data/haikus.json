@@ -90,7 +90,7 @@
     "date": "2016-06-28"
   },
   {
-    "id": "no -isitors",
+    "id": "no-visitors",
     "haiku": "Playing with words is / so much fun when there's no one / around to hear it.",
     "date": "2016-06-29"
   },
@@ -147,5 +147,11 @@
     "haiku": "Van life, open road / Dastardly deeds, no one sees / Haikus guide my dream.",
     "date": "2023-08-11",
     "description": "I was told my haikus have the power to manifest reality. I'm not sure if that's true but I'm going to try it out. \n\nSadly, I don't own a valid license, nor a valid van. But I do have a strange reader who is the type to throw caution to the wind.\n\nI hope this doesn't work."
+  },
+  {
+    "id": "indecision",
+    "haiku": "Paths fork and divide / Each step, maybe a misstep? / Best a step than none.",
+    "date": "2023-08-17",
+    "description": "Sometimes its easier when the possibilities aren't endless.\nYou know just what step to take. Just what offer to take. Just the right hand to shake.\n\nBut as the nearing clock of time clicks, the possibilities still remain, forever endless.\nAnd I am left to ponder: Is this the last fork from which I can't return?\n\nMy energy is limited and I can't afford to waste it. \n\nBut I can't afford to waste it."
   }
 ]
