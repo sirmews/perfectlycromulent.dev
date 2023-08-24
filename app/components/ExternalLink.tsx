@@ -1,16 +1,16 @@
 import React from 'react'
 
-type ExternalLinkProps = {
+type StyledLinkProps = {
 	href: string
 	children: React.ReactNode
 	className?: string
+	external?: boolean
 }
 
-export const ExternalLink: React.FC<ExternalLinkProps> = ({ href, children, className }) => (
+export const StyledLink: React.FC<StyledLinkProps> = ({ href, children, className, external = true }) => (
 	<a
 		href={href}
-		rel='noreferrer noopener'
-		target='_blank'
+		{...(external ? { rel: 'noreferrer noopener', target: '_blank' } : {})}
 		className={`${className} border-b-4 hover:bg-white hover:text-gray-900`}
 	>
 		{children}

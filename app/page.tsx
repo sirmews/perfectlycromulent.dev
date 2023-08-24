@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Cursor, ExternalLink, Hero, SubHero } from './components/index'
+import { Cursor, Hero, StyledLink, SubHero } from './components/index'
 
 const heading: string = `Nav is a perfectly cromulent product engineer, an aspiring indiehacker
 and chronic oversharer on all things mental health.`
@@ -21,25 +21,25 @@ export default function Home() {
           Find him on...
           <ul className='space-y-4'>
             <li>
-              <ExternalLink
+              <StyledLink
                 href='https://www.linkedin.com/in/nav-rao/'
               >
                 LinkedIn
-              </ExternalLink>
+              </StyledLink>
             </li>
             <li>
-              <ExternalLink
+              <StyledLink
                 href='https://theperfectlycromulent.substack.com/'
               >
                 Substack
-              </ExternalLink>
+              </StyledLink>
             </li>
             <li>
-              <ExternalLink
+              <StyledLink
                 href='https://github.com/sirmews'
               >
                 Github
-              </ExternalLink>
+              </StyledLink>
             </li>
           </ul>
         </SubHero>
