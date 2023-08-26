@@ -1,5 +1,6 @@
 import type { ISubscriberPayload, ITopicPayload, ITopicSubscribersPayload } from '@novu/node';
 import { Novu } from '@novu/node';
+import type { AxiosResponse } from 'axios';
 import { getAnonymousId } from './identity';
 
 // send Email type
@@ -20,15 +21,24 @@ interface AddSubscriberToTopicInputs extends ITopicSubscribersPayload {
 	subscribers: string[];
 }
 
+interface CreateSubscriberResponse extends AxiosResponse<ISubscriberPayload> {
+	subscriberId?: string;
+}
+
+interface AddSubscribersToTopicResponse extends AxiosResponse<{
+	succeeded: string[];
+	failed: Record<'notFound', string[]>;
+}> { }
+
 export const novu = new Novu(process.env.NOVU_API_KEY!);
 
 /**
  * Create a subscriber in Novu
  * @see https://docs.novu.co/platform/subscribers#1-ahead-of-trigger
  */
-export const createSubscriber = async (inputs: CreateSubscriberInputs): Promise<void> => {
+export const createSubscriber = async (inputs: CreateSubscriberInputs): Promise<CreateSubscriberResponse> => {
 	try {
-		await novu.subscribers.identify(getAnonymousId(), {
+		return await novu.subscribers.identify(getAnonymousId(), {
 			email: inputs.email,
 			firstName: "Subscriber",
 		});
@@ -113,10 +123,24 @@ export const getTopic = async (key: string): Promise<ITopicsResponse> => {
  * ```
  * @see https://docs.novu.co/platform/topics/#subscribers-management-in-a-topic
  */
-export const addSubscriberToTopic = async (inputs: AddSubscriberToTopicInputs): Promise<void> => {
+export const addSubscriberToTopic = async (inputs: AddSubscriberToTopicInputs): Promise<AddSubscribersToTopicResponse> => {
 	try {
-		await novu.topics.addSubscribers(inputs.topicKey, { subscribers: inputs.subscribers });
+		return await novu.topics.addSubscribers(inputs.topicKey, { subscribers: inputs.subscribers });
 	} catch (error) {
 		throw new Error(`Error adding subscribers to topic`);
+	}
+}
+
+/**
+ * Create a subscriber and assign them to a topic immediately
+ */
+export const createSubscriberAndAddToTopic = async (inputs: CreateSubscriberInputs & { topicKey: string }): Promise<void> => {
+	try {
+		const subscriber = await createSubscriber(inputs);
+		if (subscriber.subscriberId) {
+			await addSubscriberToTopic({ topicKey: inputs.topicKey, subscribers: [subscriber.subscriberId] });
+		}
+	} catch (error) {
+		throw new Error(`Error creating subscriber and adding to topic`);
 	}
 }
