@@ -18,8 +18,9 @@ export const NotificationPanel: React.FC<NotificationProps> = ({ children }) => 
 				{/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
 				<Transition
 					show={show}
+					appear={true}
 					as={Fragment}
-					enter="transform ease-out duration-300 transition"
+					enter="transform ease-out duration-500 transition"
 					enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
 					enterTo="translate-y-0 opacity-100 sm:translate-x-0"
 					leave="transition ease-in duration-100"

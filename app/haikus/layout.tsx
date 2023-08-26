@@ -1,5 +1,4 @@
 import { Subscribe } from '@components/Subscribe'
-import { NotificationPanel } from '@components/client/NotificationPanel'
 import { createSubscriberAndAddToTopic } from '@utils/novu'
 import { TOPIC_KEY_HAIKU } from '../utils/constants'
 
@@ -17,9 +16,7 @@ export default function RootLayout({
 	}
 	return (
 		<>
-			<NotificationPanel>
-				<Subscribe action={submit} />
-			</NotificationPanel>
+			<Subscribe action={submit} />
 			<div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 '>
 				{children}
 			</div>
