@@ -12,6 +12,8 @@
         "typescript.tsdk": "node_modules/typescript/lib",
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.gotoLocation.multipleDefinitions": "goto",
+        "editor.glyphMargin": false,
         "tailwindCSS": {
           "emmetCompletions": true,
           "validate": false,
@@ -36,7 +38,8 @@
         "ms-vscode.makefile-tools",
         "bungcip.better-toml",
         "ms-azuretools.vscode-docker",
-        "sastan.twind-intellisense"
+        "sastan.twind-intellisense",
+        "Postman.postman-for-vscode"
       ]
     }
   },
