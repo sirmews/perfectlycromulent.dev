@@ -6,6 +6,7 @@ enum ColorSchemes {
 
 export interface TFeatures {
   'color-scheme': ColorSchemes
+  'allow-subscription': boolean
 }
 
 /**
@@ -13,4 +14,5 @@ export interface TFeatures {
  */
 export const features: TFeatures = {
   'color-scheme': ColorSchemes.Dark,
+  'allow-subscription': false,
 }
