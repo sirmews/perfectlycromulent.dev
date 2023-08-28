@@ -1,6 +1,6 @@
-import supabase from '@utils/supabase'
-import { notFound } from 'next/navigation'
 import { Introduction } from '@components/Introduction'
+import { supabase } from '@utils/supabase'
+import { notFound } from 'next/navigation'
 
 const LinksPageData = {
   title: '[WIP] Reading List',
