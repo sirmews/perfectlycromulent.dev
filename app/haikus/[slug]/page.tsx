@@ -16,10 +16,12 @@ export interface HaikuProps {
   haiku: Haiku
 }
 
+interface Params {
+  slug: string
+}
+
 interface PageProps {
-  params: {
-    slug: string
-  }
+  params: Params
 }
 
 export async function generateMetadata(
@@ -54,8 +56,9 @@ const splitHaiku = (haiku: string) => {
   return lines
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page(props: PageProps) {
   // get haiku from router query
+  const { params } = props;
   const { slug } = params
   const { data: haiku } = await getHaiku(slug)
 
@@ -100,7 +103,7 @@ export default async function Page({ params }: PageProps) {
 /**
  * Generate static paths for all haikus
  */
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<any> {
   const { data: haikus } = await getHaikus()
 
   return haikus?.map(({ slug }) => ({
