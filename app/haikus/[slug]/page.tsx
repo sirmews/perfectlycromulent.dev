@@ -1,6 +1,6 @@
 import { Haiku, Paragraph } from '@components/index'
-import haikus from '@data/haikus.json'
 import { formatDate, randomLocations } from '@utils/date'
+import { getHaiku, getHaikus } from '@utils/supabase'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -54,29 +54,21 @@ const splitHaiku = (haiku: string) => {
   return lines
 }
 
-/**
- * Find the haiku by slug
- * @param slug - the slug of the haiku specified in the haiku json file
- */
-const findTheHaiku = (slug: string) => {
-  return haikus.find((haiku) => haiku.id === slug)
-}
-
-export default function Page({ params }: PageProps) {
+export default async function Page({ params }: PageProps) {
   // get haiku from router query
   const { slug } = params
-  const haiku = findTheHaiku(slug)
+  const { data: haiku } = await getHaiku(slug)
 
   // return 404 if no haiku found
   if (!haiku) {
     notFound()
   }
 
-  const textLines = splitHaiku(haiku.haiku)
+  const textLines = splitHaiku(haiku.haiku_text)
 
   return (
     <div className='flex sm:min-h-screen py-6 sm:py-0 sm:py-10'>
-      <div className='m-auto h-full'>
+      <div className='h-full'>
         <div className='mx-auto'>
           <div className='mx-auto lg:mx-0'>
             <p className='text-4xl font-semibold tracking-normal sm:text-7xl flex flex-col space-y-1'>
@@ -103,4 +95,15 @@ export default function Page({ params }: PageProps) {
       </div>
     </div >
   )
+}
+
+/**
+ * Generate static paths for all haikus
+ */
+export async function generateStaticParams() {
+  const { data: haikus } = await getHaikus()
+
+  return haikus?.map(({ slug }) => ({
+    slug,
+  }))
 }

@@ -1,5 +1,4 @@
-import { Haiku } from '@components/index'
-import haikus from '@data/haikus.json'
+import { getHaiku } from '@utils/supabase'
 import { ImageResponse } from 'next/server'
 
 // Route segment config
@@ -20,12 +19,6 @@ interface ImageProps {
   }
 }
 
-interface Haiku {
-  id: string
-  haiku: string
-  date: string
-}
-
 const splitHaiku = (haiku: string) => {
   // split haiku into lines
   const lines = haiku.split('/').map((line, number) => <span key={number}>{line}</span>)
@@ -34,13 +27,15 @@ const splitHaiku = (haiku: string) => {
 
 // Image generation
 export default async function Image({ params }: ImageProps) {
-  const haiku = haikus.find((haiku: Haiku) => haiku.id === params.slug)
+
+  const { slug } = params
+  const { data: haiku } = await getHaiku(slug)
 
   if (!haiku) {
     throw new Error(`Haiku not found for slug: ${params.slug}`)
   }
 
-  const haikuText = haiku?.haiku || ''
+  const haikuText = haiku?.haiku_text || ''
 
   const haikuLines = splitHaiku(haikuText)
 

@@ -1,5 +1,5 @@
-import { HaikuList, Hero } from '@components/index';
-import haikus from '@data/haikus.json';
+import { HaikuList, Hero, IHaiku } from '@components/index';
+import { getHaikus } from '@utils/supabase';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,17 +18,27 @@ export default async function Page() {
           When inspiration strikes in 5-7-5 syllables.
         </Hero>
         <div className='pt-20'>
-          <HaikuList haikus={haikus} />
+          {haikus && haikus.length > 0 && (
+            <HaikuList haikus={haikus} />
+          )}
         </div>
       </div>
     </main>
   )
 }
 
-
-// use backend to retrieve the haikus
 const getData = async () => {
-  // create a new array of haikus in reverse order
-  const reversedHaikus = [...haikus.reverse()];
-  return reversedHaikus;
+
+  const { data } = await getHaikus();
+
+  const haikus = data?.map((haiku) => {
+    return {
+      id: haiku.slug,
+      haiku: haiku.haiku_text,
+      description: haiku.description,
+      date: haiku.date,
+    } as IHaiku;
+  });
+
+  return haikus;
 }
