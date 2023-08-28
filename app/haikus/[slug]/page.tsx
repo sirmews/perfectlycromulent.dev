@@ -71,7 +71,7 @@ export default async function Page(props: PageProps) {
 
   return (
     <div className='flex sm:min-h-screen py-6 sm:py-0 sm:py-10'>
-      <div className='h-full'>
+      <div className='my-auto h-full'>
         <div className='mx-auto'>
           <div className='mx-auto lg:mx-0'>
             <p className='text-4xl font-semibold tracking-normal sm:text-7xl flex flex-col space-y-1'>
