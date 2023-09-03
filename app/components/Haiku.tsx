@@ -1,3 +1,4 @@
+import { Text } from '@components/Text';
 import { formatDate } from '@utils/date';
 import Link from 'next/link';
 import React from 'react';
@@ -30,24 +31,25 @@ export const Haiku: React.FC<HaikuProps> = ({ haiku, className }) => {
   const { haiku: text, id, date } = haiku
 
   return (
-    <div className={className}>
-      <div className='mx-auto max-w-7xl px-2 lg:px-6'>
-        <div className='mx-auto lg:mx-0'>
-          <Link
-            href={`/haikus/${id}`}
-            className='text-3xl font-semibold tracking-normal sm:text-5xl'
-          >
+    <div className={className} id={id}>
+      <div>
+        <Link
+          href={`/haikus/${id}`}
+        >
+          <Text size='lg' bold={true}>
             {splitHaiku(text).map((line, index) => (
               <React.Fragment key={index}>
                 {line}
                 <br />
               </React.Fragment>
             ))}
-          </Link>
-          <time className='block text-gray-400 text-sm sm:text-base py-3' suppressHydrationWarning>
+          </Text>
+        </Link>
+        <Text size='xs'>
+          <time className='block text-gray-400 py-3' suppressHydrationWarning>
             {formatDate(date)}
           </time>
-        </div>
+        </Text>
       </div>
     </div>
   )

@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <main className='flex min-h-screen'>
-      <div className='space-y-12 pt-24 pb-24'>
+      <div className='space-y-12'>
         <Hero>
           Perfectly Cromulent Haikus.
           <br />

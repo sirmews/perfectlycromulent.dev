@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className='flex min-h-screen'>
-      <div className='space-y-12 pt-24 pb-24'>
+      <div className='space-y-12'>
         <Hero>
           {heading}<Cursor />
         </Hero>
         <SubHero>
-          Find him on...
-          <ul className='space-y-4'>
+          Find him on the internet.
+          <ul className='space-y-4 mt-2'>
             <li>
               <StyledLink
                 href='https://www.linkedin.com/in/nav-rao/'
@@ -44,8 +44,8 @@ export default function Home() {
           </ul>
         </SubHero>
         <SubHero>
-          Things he spends time on...
-          <ul className='space-y-4'>
+          Random projects for fun, not profit.
+          <ul className='space-y-4 mt-2'>
             <li>
               <Link className='border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>Writing Haikus</Link>
             </li>

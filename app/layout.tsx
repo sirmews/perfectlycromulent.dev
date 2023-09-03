@@ -1,3 +1,4 @@
+import { Container } from '@components/Container';
 import { PageControls } from './components/client';
 import './globals.css';
 import Providers from './providers';
@@ -19,9 +20,9 @@ export default function RootLayout({
         <Providers>
           <>
             <PageControls />
-            <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 '>
+            <Container>
               {children}
-            </div>
+            </Container>
           </>
         </Providers>
       </body>

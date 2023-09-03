@@ -1,9 +1,11 @@
-import { Haiku, Paragraph } from '@components/index'
+import { Text } from '@components/Text'
+import { Haiku } from '@components/index'
 import { formatDate, randomLocations } from '@utils/date'
 import { getHaiku, getHaikus } from '@utils/supabase'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import React from 'react'
 
 interface Haiku {
   id: string
@@ -70,33 +72,33 @@ export default async function Page(props: PageProps) {
   const textLines = splitHaiku(haiku.haiku_text)
 
   return (
-    <div className='flex sm:min-h-screen py-6 sm:py-0 sm:py-10'>
-      <div className='my-auto h-full'>
-        <div className='mx-auto'>
-          <div className='mx-auto lg:mx-0'>
-            <p className='text-4xl font-semibold tracking-normal sm:text-7xl flex flex-col space-y-1'>
-              {textLines.map((line, index) => (
-                <span key={index}>
-                  {line}
-                </span>
-              ))}
-            </p>
-          </div>
-        </div>
 
-        {haiku?.date && (
-          <p className='text-gray-400 text-sm sm:text-base py-3'>
-            Written on {formatDate(haiku.date)}, {randomLocations()}.
-          </p>
-        )}
-        {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
-          <Paragraph className='text-gray-300'>{haiku.description}</Paragraph>
-        </div>}
-        <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
-          <Link className='border-b-2 border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>← More Haikus</Link>
-        </div>
+    <div className=''>
+      <div className='mx-auto'>
+        <Text size='xl' bold>
+          {textLines.map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </Text>
       </div>
-    </div >
+
+      {haiku?.date && (
+        <Text size='xs' className='text-gray-400 py-3'>
+          Written on {formatDate(haiku.date)}, {randomLocations()}.
+        </Text>
+      )}
+
+      {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
+        <Text className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
+      </div>}
+
+      <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
+        <Link className='border-b-2 border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>← More Haikus</Link>
+      </div>
+    </div>
   )
 }
 
