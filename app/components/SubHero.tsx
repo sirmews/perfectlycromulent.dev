@@ -1,4 +1,3 @@
-import { Text } from '@components/Text';
 import React from 'react';
 
 export interface SubHeroProps {
@@ -11,9 +10,9 @@ export const SubHero: React.FC<SubHeroProps> = ({ children, className }) => {
 	return (
 		<div className={className}>
 			<div className='mx-auto lg:mx-0'>
-				<Text size='lg' bold={true}>
+				<div className='font-semibold tracking-normal text-2xl sm:text-3xl md:text-4xl lg:text-5xl'>
 					{children}
-				</Text>
+				</div>
 			</div>
 		</div>
 	)

@@ -8,11 +8,11 @@ type TextProps = {
 
 // map size to tailwind class
 const sizeMap = {
-	xs: 'text-sm sm:text-base',
-	sm: 'text-md sm:text-lg',
-	md: 'text-xl sm:text-2xl',
-	lg: 'text-3xl sm:text-5xl',
-	xl: 'text-5xl sm:text-6xl',
+	xs: 'text-xs sm:text-base md:text-base lg:text-lg',
+	sm: 'text-lg sm:text-xl md:text-2xl lg:text-3xl',
+	md: 'text-lg sm:text-xl md:text-2xl lg:text-2xl',
+	lg: 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl',
+	xl: 'text-3xl sm:text-4xl md:text-5xl lg:text-6xl',
 }
 
 

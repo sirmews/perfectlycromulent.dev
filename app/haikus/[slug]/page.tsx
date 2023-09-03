@@ -1,11 +1,11 @@
-import { Text } from '@components/Text'
-import { Haiku } from '@components/index'
-import { formatDate, randomLocations } from '@utils/date'
-import { getHaiku, getHaikus } from '@utils/supabase'
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import React from 'react'
+import { HaikuText } from '@components/HaikuText';
+import { Text } from '@components/Text';
+import { Haiku } from '@components/index';
+import { formatDate, randomLocations } from '@utils/date';
+import { getHaiku, getHaikus } from '@utils/supabase';
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface Haiku {
   id: string
@@ -47,16 +47,6 @@ const slugToTitle = (slug: string) => {
   return words.map((word) => word[0] + word.slice(1)).join(' ')
 }
 
-/**
- * Split string into individual lines of text
- * @param haiku
- * @returns
- */
-const splitHaiku = (haiku: string) => {
-  // split haiku into lines
-  const lines = haiku.split('/')
-  return lines
-}
 
 export default async function Page(props: PageProps) {
   // get haiku from router query
@@ -69,21 +59,10 @@ export default async function Page(props: PageProps) {
     notFound()
   }
 
-  const textLines = splitHaiku(haiku.haiku_text)
-
   return (
 
     <div className=''>
-      <div className='mx-auto'>
-        <Text size='xl' bold>
-          {textLines.map((line, index) => (
-            <React.Fragment key={index}>
-              {line}
-              <br />
-            </React.Fragment>
-          ))}
-        </Text>
-      </div>
+      <HaikuText text={haiku.haiku_text} />
 
       {haiku?.date && (
         <Text size='xs' className='text-gray-400 py-3'>
@@ -92,11 +71,15 @@ export default async function Page(props: PageProps) {
       )}
 
       {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
-        <Text className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
+        <Text size='md' className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
       </div>}
 
       <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
-        <Link className='border-b-2 border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>← More Haikus</Link>
+        <Text size='md'>
+          <Link className='border-b-2 border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>
+            ← More Haikus
+          </Link>
+        </Text>
       </div>
     </div>
   )
