@@ -1,19 +1,9 @@
 import { Text } from '@components/Text'
+import { splitHaiku } from '@utils/haiku'
 import React from 'react'
 
 type HaikuTextProps = {
 	text: string
-}
-
-/**
- * Split string into individual lines of text
- * @param haiku
- * @returns
- */
-const splitHaiku = (haiku: string) => {
-	// split haiku into lines
-	const lines = haiku.split('/')
-	return lines
 }
 
 export const HaikuText: React.FC<HaikuTextProps> = ({ text }) => (

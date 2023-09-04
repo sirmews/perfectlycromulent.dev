@@ -1,3 +1,5 @@
+'use server'
+
 import { HaikuText } from '@components/HaikuText';
 import { Text } from '@components/Text';
 import { Haiku } from '@components/index';
@@ -47,7 +49,6 @@ const slugToTitle = (slug: string) => {
   return words.map((word) => word[0] + word.slice(1)).join(' ')
 }
 
-
 export default async function Page(props: PageProps) {
   // get haiku from router query
   const { params } = props;
@@ -63,7 +64,6 @@ export default async function Page(props: PageProps) {
 
     <div className=''>
       <HaikuText text={haiku.haiku_text} />
-
       {haiku?.date && (
         <Text size='xs' className='text-gray-400 py-3'>
           Written on {formatDate(haiku.date)}, {randomLocations()}.
