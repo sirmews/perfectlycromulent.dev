@@ -1,4 +1,3 @@
-import { SubscribeForm } from '@components/SubscribeForm'
 
 export default function RootLayout({
 	children,
@@ -8,7 +7,6 @@ export default function RootLayout({
 
 	return (
 		<>
-			<SubscribeForm />
 			<div className=''>
 				{children}
 			</div>

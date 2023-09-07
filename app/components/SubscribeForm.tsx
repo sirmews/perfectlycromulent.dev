@@ -11,7 +11,11 @@ export const SubscribeForm = () => {
 	}
 	return (
 		<>
-			<Subscribe />
+			<div className="pointer-events-auto w-full max-w-sm overflow-hidden text-gray-300 mt-4">
+				<div className="py-6">
+					<Subscribe />
+				</div>
+			</div>
 		</>
 	);
 }

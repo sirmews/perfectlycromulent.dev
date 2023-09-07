@@ -1,6 +1,7 @@
 'use server'
 
 import { HaikuText } from '@components/HaikuText';
+import { SubscribeForm } from '@components/SubscribeForm';
 import { Text } from '@components/Text';
 import { Haiku } from '@components/index';
 import { formatDate, randomLocations } from '@utils/date';
@@ -73,6 +74,8 @@ export default async function Page(props: PageProps) {
       {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
         <Text size='md' className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
       </div>}
+
+      <SubscribeForm />
 
       <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
         <Text size='md'>
