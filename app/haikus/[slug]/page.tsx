@@ -4,6 +4,7 @@ import { HaikuText } from '@components/HaikuText';
 import { SubscribeForm } from '@components/SubscribeForm';
 import { Text } from '@components/Text';
 import { Haiku } from '@components/index';
+import { generateRandomGradient } from '@utils/colors';
 import { formatDate, randomLocations } from '@utils/date';
 import { getHaiku, getHaikus } from '@utils/supabase';
 import type { Metadata } from 'next';
@@ -64,7 +65,9 @@ export default async function Page(props: PageProps) {
   return (
 
     <div className=''>
-      <HaikuText text={haiku.haiku_text} />
+      <div className="bg-clip-text text-transparent" style={{ backgroundImage: generateRandomGradient() }}>
+        <HaikuText text={haiku.haiku_text} />
+      </div>
       {haiku?.date && (
         <Text size='xs' className='text-gray-400 py-3'>
           Written on {formatDate(haiku.date)}, {randomLocations()}.

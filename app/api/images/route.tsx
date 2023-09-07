@@ -1,3 +1,4 @@
+import { generateRandomGradient } from '@utils/colors';
 import { splitHaiku } from '@utils/haiku';
 import { getHaiku } from '@utils/supabase';
 import { ImageResponse } from 'next/server';
@@ -22,14 +23,7 @@ export async function GET(request: Request) {
 	const description = data?.description || ''
 	const truncatedDescription = description.length > 100 ? description.slice(0, 100) + '...' : description
 
-	const gradients = [
-		'linear-gradient(to top, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0))',
-		'linear-gradient(to left top, rgb(29, 78, 216), rgb(30, 64, 175), rgb(17, 24, 39))',
-		'linear-gradient(rgb(17, 24, 39), rgb(75, 85, 99))',
-		'linear-gradient(to right bottom, rgb(120, 53, 15), rgb(253, 224, 71))',
-	]
-
-	const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+	const randomGradient = generateRandomGradient();
 
 	return new ImageResponse(
 		(
@@ -63,7 +57,9 @@ export async function GET(request: Request) {
 						display: 'flex',
 						flexDirection: 'column',
 						fontWeight: 'bold',
-						color: 'white',
+						backgroundImage: randomGradient,
+						backgroundClip: 'text',
+						color: 'transparent',
 					}}>
 						{haikuLines.map((line, index) => (
 							<div style={{
@@ -77,7 +73,7 @@ export async function GET(request: Request) {
 							</div>
 						))}
 						<div style={{ fontSize: 25, marginTop: '70px' }}>
-							{truncatedDescription}
+
 						</div>
 					</div>
 					<div style={{ marginTop: 'auto', marginBottom: '20px', fontSize: 20, justifyContent: 'flex-end' }}>
