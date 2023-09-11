@@ -2,7 +2,7 @@ import { HaikuList, Hero, IHaiku } from '@components/index';
 import { getHaikus } from '@utils/supabase';
 import { Metadata } from 'next';
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   description: `Perfectly Cromulent Haikus - it's just 5-7-5 syllables`,
