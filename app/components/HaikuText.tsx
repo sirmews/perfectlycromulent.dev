@@ -1,3 +1,5 @@
+'use client'
+
 import { Text } from '@components/Text'
 import { splitHaiku } from '@utils/haiku'
 import React from 'react'
@@ -8,7 +10,7 @@ type HaikuTextProps = {
 }
 
 export const HaikuText: React.FC<HaikuTextProps> = ({ text, className }) => (
-	<Text size='lg' bold={true} className={`${className}`}>
+	<Text size='xl' bold={true} className={`${className}`}>
 		{splitHaiku(text).map((line, index) => (
 			<React.Fragment key={index}>
 				{line}
