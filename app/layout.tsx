@@ -22,7 +22,7 @@ export default function RootLayout({
           <>
             <PageControls />
             <Container>
-              <Logo className='w-16 sm:w-20 h-16 sm:h-20 mb-6' />
+              <Logo className='w-14 sm:w-20 h-14 sm:h-20 mb-6' />
               {children}
             </Container>
           </>

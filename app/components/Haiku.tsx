@@ -25,6 +25,7 @@ export const Haiku: React.FC<HaikuProps> = ({ haiku, className }) => {
     <div className={className} id={id}>
       <div>
         <Link
+          className='block hover:text-simpsons'
           href={`/haikus/${id}`}
         >
           <HaikuText text={text} />
