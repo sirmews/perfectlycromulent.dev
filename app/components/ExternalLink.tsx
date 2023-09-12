@@ -11,7 +11,7 @@ export const StyledLink: React.FC<StyledLinkProps> = ({ href, children, classNam
 	<a
 		href={href}
 		{...(external ? { rel: 'noreferrer noopener', target: '_blank' } : {})}
-		className={`${className} border-b-4 hover:bg-white hover:text-gray-900`}
+		className={`${className} cursor-pointer border-b-4 hover:bg-simpsons-yellow hover:text-gray-900`}
 	>
 		{children}
 	</a >

@@ -9,7 +9,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        simpsons: '#fde047',
+        simpsons: {
+          yellow: '#F7D629',
+          red: '#EF5A52',
+          blue: '#4273DE',
+        },
       },
     },
   },

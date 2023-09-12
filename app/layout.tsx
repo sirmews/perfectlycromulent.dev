@@ -1,5 +1,6 @@
 import { Container } from '@components/Container';
 import { Logo } from '@components/Logo';
+import Link from 'next/link';
 import { PageControls } from './components/client';
 import './globals.css';
 import Providers from './providers';
@@ -22,7 +23,7 @@ export default function RootLayout({
           <>
             <PageControls />
             <Container>
-              <Logo className='w-14 sm:w-20 h-14 sm:h-20 mb-6' />
+              <Link href="/"><Logo className='w-14 sm:w-20 h-14 sm:h-20 mb-6 hover:animate-spin' /></Link>
               {children}
             </Container>
           </>

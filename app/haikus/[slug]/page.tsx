@@ -82,7 +82,7 @@ export default async function Page(props: PageProps) {
 
       <div className='py-4 text-lg font-semibold tracking-normal sm:text-xl'>
         <Text size='md'>
-          <Link className='border-b-2 border-b-4 hover:bg-simpsons hover:text-gray-900' href='/haikus'>
+          <Link className='border-b-2 border-b-4 hover:bg-simpsons-yellow hover:text-gray-900' href='/haikus'>
             ← More Haikus
           </Link>
         </Text>

@@ -15,7 +15,8 @@ export default function Home() {
     <main className='flex min-h-screen flex-col'>
       <div className='space-y-12'>
         <Hero>
-          {heading}<Cursor />
+          Nav is a <span className='text-simpsons-yellow'>perfectly cromulent</span> product engineer, an aspiring indiehacker
+          and chronic oversharer on all things mental health.<Cursor />
         </Hero>
         <SubHero>
           Find him on the internet.
@@ -47,7 +48,7 @@ export default function Home() {
           Random projects for fun, not profit.
           <ul className='space-y-4 mt-2'>
             <li>
-              <Link className='border-b-4 hover:bg-white hover:text-gray-900' href='/haikus'>Writing Haikus</Link>
+              <Link className='border-b-4 cursor-pointer hover:bg-simpsons-yellow hover:text-gray-900' href='/haikus'>Writing Haikus</Link>
             </li>
           </ul>
         </SubHero>
