@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen'>
+    <main className='flex min-h-screen flex-col'>
       <div className='space-y-12'>
         <Hero>
           {heading}<Cursor />

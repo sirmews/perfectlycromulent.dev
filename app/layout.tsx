@@ -1,4 +1,5 @@
 import { Container } from '@components/Container';
+import { Logo } from '@components/Logo';
 import { PageControls } from './components/client';
 import './globals.css';
 import Providers from './providers';
@@ -21,6 +22,7 @@ export default function RootLayout({
           <>
             <PageControls />
             <Container>
+              <Logo className='w-16 sm:w-20 h-16 sm:h-20 mb-6' />
               {children}
             </Container>
           </>
