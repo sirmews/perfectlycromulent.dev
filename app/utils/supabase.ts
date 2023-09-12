@@ -15,7 +15,7 @@ export const supabase = createClient<Database>(
  */
 export const getHaikus = async () => {
   try {
-    return supabase.from("haikus").select().order('date', { ascending: false });
+    return supabase.from("haikus").select().eq('status', 'published').order('date', { ascending: false });
   } catch (error) {
     throw new Error("Error getting haikus");
   }
