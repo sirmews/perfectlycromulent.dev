@@ -4,6 +4,7 @@ import { HaikuText } from '@components/HaikuText';
 import { SubscribeForm } from '@components/SubscribeForm';
 import { Text } from '@components/Text';
 import { Haiku } from '@components/index';
+import SubstackIcon from '@icons/SubstackIcon';
 import { generateRandomGradient } from '@utils/colors';
 import { formatDate, randomLocations } from '@utils/date';
 import { getHaiku, getHaikus } from '@utils/supabase';
@@ -57,6 +58,12 @@ export default async function Page(props: PageProps) {
   const { slug } = params
   const { data: haiku } = await getHaiku(slug)
 
+  const metadata: any = haiku?.metadata ?? {};
+  // if there is a style property in the metadata, use it
+  const customStyle = metadata?.style ?? {}
+
+  const links = metadata?.links ?? []
+
   // return 404 if no haiku found
   if (!haiku) {
     notFound()
@@ -65,7 +72,7 @@ export default async function Page(props: PageProps) {
   return (
 
     <div className=''>
-      <div className="bg-clip-text text-transparent" style={{ backgroundImage: generateRandomGradient() }}>
+      <div className="bg-clip-text text-transparent" style={{ ...customStyle, backgroundImage: generateRandomGradient() }}>
         <HaikuText text={haiku.haiku_text} />
       </div>
       {haiku?.date && (
@@ -77,6 +84,21 @@ export default async function Page(props: PageProps) {
       {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
         <Text size='md' className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
       </div>}
+
+      {links.length > 0 && links.map((link: any, key: number) => (
+        <div key={key} className='my-4'>
+          <div className='inline-flex'>
+            <a href={link.link}
+              target="_blank"
+              rel='noreferrer noopener'
+              className="border-white border-solid border-none inline-flex items-center gap-x-2 rounded-md px-5 py-3 text-sm font-semibold shadow-sm  bg-white text-gray-900 hover:text-gray-900 hover:bg-simpsons-yellow"
+            >
+              <SubstackIcon className='w-6 h-6 hover:fill-[#FF6719]' />
+              {link.text}
+            </a>
+          </div>
+        </div>
+      ))}
 
       <SubscribeForm />
 
