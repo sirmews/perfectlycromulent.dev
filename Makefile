@@ -1,5 +1,5 @@
 # Load the .env file
-include .env.local
+include .env
 export
 
 .SILENT: generate-types
@@ -12,3 +12,6 @@ supabase-login:
 generate-types:
 	echo "Generating Supabase types..."
 	yarn --silent supabase gen types typescript --project-id $(SUPABASE_PROJECT_ID) > app/types/supabase.ts
+
+run-flask:
+	python3 /py-setup/python-packages/bin/uvicorn python-src.index:app --reload

@@ -2,7 +2,7 @@
   "name": "Perfectly Cromulent",
   "build": {
     "dockerfile": "Dockerfile.dev",
-    "context": "."
+    "context": "../"
   },
   "appPort": [3000],
   "postCreateCommand": "yarn install",
@@ -42,7 +42,9 @@
         "Postman.postman-for-vscode",
         "GitHub.copilot-labs",
         "GitHub.copilot-chat",
-        "VisualStudioExptTeam.vscodeintellicode"
+        "VisualStudioExptTeam.vscodeintellicode",
+        "ms-python.python",
+        "ms-python.autopep8"
       ]
     }
   },

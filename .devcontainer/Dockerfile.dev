@@ -1,34 +1,58 @@
-# Use the official Node.js 18 image as the base image
-FROM node:18
+# ---- Python Base ----
+FROM python:3.10-slim AS python-base
 
-# Set the working directory to /workspace
-WORKDIR /workspace
+WORKDIR /py-setup
 
-# Install zsh
-RUN apt-get update && apt-get install -y zsh
-# Set default shell
-SHELL ["/bin/zsh", "-c"]
+COPY requirements.txt ./
 
-# Clone Prezto
-RUN git clone --depth 1 --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-# Set up Prezto
-RUN setopt EXTENDED_GLOB \
-    && for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do \
-        ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" \
-    ; done
+RUN pip install -r requirements.txt --target=./python-packages
 
-# Copy the package.json and yarn.lock files to the container
+# Setting PYTHONPATH to recognize our custom installation directory
+ENV PYTHONPATH="/py-setup/python-packages:$PYTHONPATH"
+
+# ---- Node Base ----
+FROM node:18 AS node-base
+
+WORKDIR /node-setup
+
 COPY package*.json ./
 
-# Install the dependencies
 RUN yarn install --production=false
 
-# Copy the rest of the application code to the container
+# ---- Final Stage ----
+FROM node:18
+
+# Set the working directory
+WORKDIR /workspace
+
+# Install zsh and python3
+RUN apt-get update && apt-get install -y zsh python3 python3-pip
+
+# Copy Python packages from Python stage
+COPY --from=python-base /py-setup/python-packages /py-setup/python-packages
+
+# Copy Node modules from Node stage
+COPY --from=node-base /node-setup/node_modules /workspace/node_modules
+
+# Setting PYTHONPATH to recognize our custom installation directory
+ENV PYTHONPATH="/py-setup/python-packages:$PYTHONPATH"
+
+# Zsh setup
+SHELL ["/bin/zsh", "-c"]
+RUN git clone --depth 1 --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+RUN setopt EXTENDED_GLOB \
+    && for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do \
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}" \
+    ; done
+
+# Copy application code
 COPY . .
 
-# Expose the default port for the app
+# Expose port
 EXPOSE 3000
 
-# Start the app
+# Start app
 CMD ["yarn", "start"]
 
+# Easy way to run Python scripts using the virtual environment
+# ENTRYPOINT ["python3"]
