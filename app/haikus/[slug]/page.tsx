@@ -52,6 +52,20 @@ const slugToTitle = (slug: string) => {
   return words.map((word) => word[0] + word.slice(1)).join(' ')
 }
 
+function formatDescription(description: string) {
+  // Use a simple regex to detect URLs
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+  return description.split(urlRegex).map((part, index) => {
+    if (part.match(urlRegex)) {
+      return <a key={index} className="border-b-2 border-b-4 hover:bg-simpsons-yellow hover:text-gray-900" href={part} target="_blank" rel="noopener noreferrer">{part}</a>;
+    } else {
+      return part;
+    }
+  });
+}
+
+
 export default async function Page(props: PageProps) {
   // get haiku from router query
   const { params } = props;
@@ -82,7 +96,7 @@ export default async function Page(props: PageProps) {
       )}
 
       {haiku?.description && <div className='pt-8 pb-4 max-w-xl'>
-        <Text size='md' className='text-gray-300 whitespace-pre-wrap'>{haiku.description}</Text>
+        <Text size='md' className='text-gray-300 whitespace-pre-wrap'>{formatDescription(haiku.description)}</Text>
       </div>}
 
       {links.length > 0 && links.map((link: any, key: number) => (
