@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Cursor, Hero, StyledLink, SubHero } from './components/index'
+import { Cursor, Hero, StyledLink, SubHero } from '../components/index'
 
 const heading: string = `Nav is a perfectly cromulent product engineer, an aspiring indiehacker
 and chronic oversharer on all things mental health.`

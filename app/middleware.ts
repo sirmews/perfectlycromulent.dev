@@ -1,4 +1,4 @@
-import { createMiddlewareSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs'
 import { getAnonymousId } from '@utils/identity'
 import { NextResponse } from 'next/server'
 
@@ -7,15 +7,14 @@ import type { Database } from './types/supabase'
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next()
-  const supabase = createMiddlewareSupabaseClient<Database>({ req, res })
-  await supabase.auth.getSession()
   setAnonymousId(req)
+  supabaseAuth(req)
   return res
 }
 
 /**
  * Set an anonymous ID cookie if one does not exist.
-*/
+ */
 const setAnonymousId = (req: NextRequest): NextResponse => {
   const response = NextResponse.next()
 
@@ -26,4 +25,14 @@ const setAnonymousId = (req: NextRequest): NextResponse => {
     return response;
   }
   return response;
+}
+
+/**
+ * Authenticate the user with Supabase.
+ */
+const supabaseAuth = async (req: NextRequest): Promise<NextResponse> => {
+  const res = NextResponse.next()
+  const supabase = createMiddlewareClient<Database>({ req, res })
+  await supabase.auth.getSession()
+  return res;
 }

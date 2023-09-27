@@ -1,9 +1,9 @@
 import { Container } from '@components/Container';
 import { Logo } from '@components/Logo';
 import Link from 'next/link';
-import { PageControls } from './components/client';
-import './globals.css';
-import Providers from './providers';
+import { PageControls } from '../components/client';
+import '../globals.css';
+import Providers from '../providers';
 
 export const metadata = {
   title: 'Nav is Perfectly Cromulent',
