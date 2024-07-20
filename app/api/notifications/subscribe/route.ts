@@ -13,7 +13,7 @@ export async function POST(req: NextRequest): Promise<Response> {
 		if (!email || !description) {
 			return new Response('Missing email or description', { status: 400 });
 		}
-		await createSubscriber({ email, description });
+		//await createSubscriber({ email, description });
 		return new Response('Successfully subscribed', { status: 200 });
 	} catch (error) {
 		return new Response(`Subscription error`, { status: 500 });
