@@ -18,3 +18,39 @@
     visibility: hidden;
   }
 }
+
+#hover {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    transition: top 0.3s, left 0.3s;
+}
+
+@keyframes move {
+    0% {
+        --random-left: 50px;
+        --random-top: 50px;
+    }
+    25% {
+        --random-left: calc(50px + (200px * 0.25));
+        --random-top: calc(50px + (200px * 0.25));
+    }
+    50% {
+        --random-left: calc(50px + (200px * 0.5));
+        --random-top: calc(50px + (200px * 0.5));
+    }
+    75% {
+        --random-left: calc(50px + (200px * 0.75));
+        --random-top: calc(50px + (200px * 0.75));
+    }
+    100% {
+        --random-left: calc(50px + 200px);
+        --random-top: calc(50px + 200px);
+    }
+}
+
+#hover:hover {
+    animation: move 0.3s forwards;
+    left: var(--random-left);
+    top: var(--random-top);
+}
