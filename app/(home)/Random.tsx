@@ -30,7 +30,7 @@ export default function Random() {
         <SubHero>
           <ul className='space-y-4 mt-2'>
             <li>
-              <Link className='border-b-4 cursor-pointer bg-simpsons-yellow text-gray-900' href='mailto:woofmew@protonmail.com' style={{ position: 'absolute', bottom: `${position.top}px`, left: `${position.left}px`, transition: 'top 0.3s, left 0.3s' }}
+              <Link className='border-b-4 cursor-pointer bg-simpsons-yellow text-gray-900' href='mailto:woofmew@protonmail.com' style={{ position: 'absolute', bottom: `${position.bottom}px`, left: `${position.left}px`, transition: 'top 0.3s, left 0.3s' }}
         onMouseOver={handleMouseOver}>{text}</Link>
             </li>
           </ul>
