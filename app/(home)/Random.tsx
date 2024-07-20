@@ -18,7 +18,7 @@ export default function Random() {
     const randomX = Math.random() * maxX;
     const randomY = Math.random() * maxY;
 
-    setPosition({ top: randomY, left: randomX });
+    setPosition({ bottom: randomY, left: randomX });
   };
 
   useEffect(() => {
