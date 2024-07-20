@@ -10,7 +10,7 @@ export default function Random() {
   const [position, setPosition] = useState({ bottom: 50, left: 50 });
   const [text, setText] = useState('Click here to contact me');
 
-  const randomText = ['Click here', 'no, here', 'its easy just contact me', 'why wont you click', 'your loss', 'hai, im here']
+  const randomText = ['Click here to contact me', 'Click here to contact me!!!', 'Click here FFS!', 'Click here!!!!!!!', 'Why wont you Click here to contact me!!!??', 'Hi, Click here to contact me']
 
   const handleMouseOver = () => {
     const maxX = window.innerWidth - 100; // Assuming the button's width is 100px
