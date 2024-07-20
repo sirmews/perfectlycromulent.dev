@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 export default function Random() {
 
   const [position, setPosition] = useState({ bottom: 50, left: 50 });
-  const [text, setText] = 'Click here to contact me';
+  const [text, setText] = useState('Click here to contact me');
 
   const randomText = ['Click here', 'no, here', 'its easy just contact me', 'why wont you click', 'your loss', 'hai, im here']
 
