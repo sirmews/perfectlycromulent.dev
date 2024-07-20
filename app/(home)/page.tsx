@@ -52,6 +52,14 @@ export default function Home() {
             </li>
           </ul>
         </SubHero>
+        <SubHero>
+          Contact me
+          <ul className='space-y-4 mt-2'>
+            <li>
+              <Link className='border-b-4 cursor-pointer hover:bg-simpsons-yellow hover:text-gray-900' href='mailto:woofmew@protonmail.com' id="hover">Click here</Link>
+            </li>
+          </ul>
+        </SubHero>
       </div>
     </main>
   )
