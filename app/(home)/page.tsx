@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Cursor, Hero, StyledLink, SubHero } from '../components/index'
 import { useState } from "react";
+import Random from './Random'
 
 const heading: string = `Nav is a perfectly cromulent product engineer, an aspiring indiehacker
 and chronic oversharer on all things mental health.`
@@ -64,14 +65,7 @@ export default function Home() {
             </li>
           </ul>
         </SubHero>
-        <SubHero>
-          <ul className='space-y-4 mt-2'>
-            <li>
-              <Link className='border-b-4 cursor-pointer hover:bg-simpsons-yellow hover:text-gray-900' href='mailto:woofmew@protonmail.com' style={{ position: 'absolute', top: `${position.top}px`, left: `${position.left}px`, transition: 'top 0.3s, left 0.3s' }}
-        onMouseOver={handleMouseOver}>Click here</Link>
-            </li>
-          </ul>
-        </SubHero>
+        <Random/>
       </div>
     </main>
   )
